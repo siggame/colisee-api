@@ -15,3 +15,10 @@ export interface User {
     created_time: Date;
     modified_time: Date;
 }
+
+export interface Team {
+    id: number;
+    gitlab_id: number;
+
+    
+}

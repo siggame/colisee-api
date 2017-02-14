@@ -10,4 +10,5 @@ export const GITLAB_HOST: string = _.defaultTo(process.env.GITLAB_HOST, "localho
 export const GITLAB_PORT: number = _.defaultTo(process.env.GITLAB_PORT, 8080);
 export const GITLAB_TOKEN: string = _.defaultTo(process.env.GITLAB_TOKEN, "GITLAB_TOKEN");
 
+export const TOKEN: string = _.defaultTo(process.env.TOKEN, "COLISEE_API_TOKEN");
 export const PORT: number = _.defaultTo(process.env.PORT, 3000);

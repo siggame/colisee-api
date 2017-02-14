@@ -11,6 +11,7 @@
     "build": "tsc",
     "quick-docs": "npm run quick-docs:ts",
     "quick-docs:ts": "typedoc --tsconfig tsdoc.json --out docs/ts/",
+    "quick-docs:api": "apidoc -i src/ -o docs/api/",
     "predocs": "npm run build",
     "docs": "npm run quick-docs",
     "quick-test": "mocha test/",
