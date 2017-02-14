@@ -1,0 +1,53 @@
+{
+  "name": "colisee-api",
+  "version": "1.0.0",
+  "description": "Micro-service responsible for scheduling random games for SIG-Game Colisee.",
+  "main": "src/main.js",
+  "scripts": {
+    "quick-start": "node src/main.js",
+    "prestart": "npm run build",
+    "start": "npm run quick-start",
+    "setup": "npm install",
+    "build": "tsc",
+    "quick-docs": "npm run quick-docs:ts",
+    "quick-docs:ts": "typedoc --tsconfig tsdoc.json --out docs/ts/",
+    "predocs": "npm run build",
+    "docs": "npm run quick-docs",
+    "quick-test": "mocha test/",
+    "pretest": "npm run build",
+    "test": "npm run quick-test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/siggame/colisee-api.git"
+  },
+  "author": "siggame",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/siggame/colisee-api/issues"
+  },
+  "homepage": "https://github.com/siggame/colisee-api#readme",
+  "devDependencies": {
+    "@types/body-parser": "0.0.33",
+    "@types/chai": "^3.4.34",
+    "@types/dotenv": "^2.0.20",
+    "@types/express": "^4.0.35",
+    "@types/knex": "0.0.40",
+    "@types/mocha": "^2.2.39",
+    "@types/node": "^7.0.5",
+    "apidoc": "^0.17.5",
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0",
+    "tsdoc": "0.0.4",
+    "typedoc": "^0.5.5",
+    "typescript": "^2.1.5"
+  },
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "pg": "^6.1.2",
+    "lodash": "^4.17.4",
+    "express": "^4.14.1",
+    "body-parser": "^1.16.0",
+    "knex": "^0.12.6"
+  }
+}
