@@ -3,17 +3,12 @@ sudo: required
 services:
   - docker
 
-language: nodejs
-
-env:
-  - POSTGRES_PORT=5433
-
 before_script:
-  - npm run setup
-  - docker run --name matchmaker-db --publish 5433:5432 --detach siggame/colisee-db
+  - docker build -t colisee-api .
+  - docker run --name db --publish 5433:5432 --detach siggame/colisee-db
 
 script:
-  - npm run test
+  - docker run --env POSTGRES_PORT=5433 --network host colisee-api npm run test
 
 after_script:
-  - docker stop matchmaker-db
+  - docker stop db

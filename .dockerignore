@@ -3,14 +3,15 @@
 .vscode/
 .idea/
 .env
+*.log
 
 # NodeJS & NPM
 node_modules/
 npm-debug.log
-*.js.map
 
 # Git
 .git/
 .gitignore
+.gitattributes
 
 docs/
