@@ -1,4 +1,8 @@
 import * as express from "express";
+import * as _ from "lodash";
+import * as types from "../types";
+import * as request from "requests";
+import * as db from "../db";
 
 const router: express.Router = express.Router();
 
@@ -68,43 +72,11 @@ router.delete("/:user", (req, res, next)=>{
  * @apiParam {Number} user User's unique ID.
  */
 router.get("/:user/invites", (req, res, next)=>{
-    //TODO: Get invitations
+    const user_id: number = req.params.user;
+
+    db.query("team_invitation").where("reciever", user_id)
+        .then(rows=>)
 });
 
-/**
- * @api {get} /api/users/:user/invites Get Team Invitation
- * @apiName GetTeamInvite
- * @apiGroup User
- * 
- * @apiParam {Number} user User's unique ID.
- */
-router.get("/:user/invites/:invite", (req, res, next)=>{
-    //TODO: Get the specific invitation
-});
-
-/**
- * @api {get} /api/users/:user/invites Get Team Invitation
- * @apiName AcceptTeamInvite
- * @apiGroup User
- * 
- * @apiParam {Number} user User's unique ID.
- * @apiParam {Number} invite Invite's unique ID. 
- */
-router.put("/:user/invites/:invite", (req, res, next)=>{
-    //TODO: Apply the user to the Team
-    //TODO: Delete the invitation
-});
-
-/**
- * @api {get} /api/users/:user/invites Reject Team Invitation
- * @apiName RejectUserInvite
- * @apiGroup User
- * 
- * @apiParam {Number} user Users unique ID.
- * @apiParam {Number} invite Invite unique ID. 
- */
-router.delete("/:user/invites/:invite", (req, res, next)=>{
-    //TODO: Delete the invitation
-});
 
 export default router;

@@ -1,5 +1,7 @@
  import {Request, Response, NextFunction} from "express";
  import * as qs from "querystring";
+ import { HttpError } from "./types";
+ import * as _ from "lodash";
 
  import * as vars from "./vars";
 
@@ -11,5 +13,11 @@ export function log(req: Request, res: Response, next: NextFunction) {
 export function authenticate(req: Request, res: Response, next: NextFunction) {
     if(req.headers["token"] === vars.TOKEN) return next();
     
-    next(new Error("Invalid token"));
+    const err = new HttpError("Invalid token");
+    err.status_code = 404;
+    next(err);
+}
+
+export function handleErrors(err: HttpError, req: Request, res: Response) {
+    res.status(err.status_code).send(err.message);
 }
