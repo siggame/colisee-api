@@ -17,11 +17,19 @@ export const db = knexModule({
 
 export function gitlab(method: string, path: string, qs: Object={}, headers: Object={}, body?: Object): Promise<any> {
     return new Promise<any>((resolve, reject)=>{
-        const options = {
+        const options: rp.Options= {
             method: method,
             uri: path,
+            qs: qs,
+            headers: headers,
+            json: true
         }
-        if(!_.isNil(body)) options["body"] = body;
-         rp.
+
+        options.headers["PRIVATE-TOKEN"] = vars.GITLAB_TOKEN;
+        if(!_.isNil(body)) options.body = body;
+
+        return rp(options)
+            .then(resolve)
+            .catch(reject);
     });
 }
