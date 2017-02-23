@@ -2,7 +2,7 @@ import * as express from "express";
 import * as _ from "lodash";
 import * as rp from "request-promise";
 import * as types from "../types";
-import * as db from "../db";
+import * as users from "../users";
 
 const router: express.Router = express.Router();
 
@@ -115,7 +115,7 @@ router.get("/:user/invites", (req, res, next)=>{
   * @apiSuccess (200) {Object[]} teams Information for the teams which the user is on
   * @apiError (404) User Not Found
   */
-router.get("/:user/team" (req, res, next)=>{
+router.get("/:user/teams" (req, res, next)=>{
 
 });
 
