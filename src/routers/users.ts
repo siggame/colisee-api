@@ -1,7 +1,6 @@
 import * as express from "express";
 import * as _ from "lodash";
 import * as rp from "request-promise";
-import * as types from "../types";
 import * as users from "../users";
 
 const router: express.Router = express.Router();
@@ -31,10 +30,6 @@ router.get("/", (req, res, next)=>{
  * @apiError (400) BadRequest
  */
 router.post("/", (req, res, next)=>{
-    const dbData = {};
-    db.query("user").insert(dbData, "*");
-
-    rp.
 });
 
 /**
@@ -48,8 +43,6 @@ router.post("/", (req, res, next)=>{
  * @apiError (404) User Not Found
  */
 router.get("/:user", (req, res, next)=>{
-
-    db.query("user")
 });
 
 /**
@@ -96,9 +89,6 @@ router.delete("/:user", (req, res, next)=>{
  */
 router.get("/:user/invites", (req, res, next)=>{
     const user_id: number = req.params.user;
-
-    db.query("team_invitation").where("reciever", user_id)
-        .then(rows=>)
 });
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -115,7 +105,7 @@ router.get("/:user/invites", (req, res, next)=>{
   * @apiSuccess (200) {Object[]} teams Information for the teams which the user is on
   * @apiError (404) User Not Found
   */
-router.get("/:user/teams" (req, res, next)=>{
+router.get("/:user/teams", (req, res, next)=>{
 
 });
 
