@@ -1,7 +1,7 @@
 import * as express from "express";
 import * as _ from "lodash";
+import * as rp from "request-promise";
 import * as types from "../types";
-import * as request from "requests";
 import * as db from "../db";
 
 const router: express.Router = express.Router();
@@ -9,6 +9,7 @@ const router: express.Router = express.Router();
 ///////////////////////////////////////////////////////////////////////////////
 // Users
 ///////////////////////////////////////////////////////////////////////////////
+
 /**
  * @api {get} /api/users/ Request Multiple User information
  * @apiName GetUsers
@@ -27,10 +28,13 @@ router.get("/", (req, res, next)=>{
  * @apiGroup User
  *
  * @apiSuccess (201) User Created
- * @apiError (404) Error
+ * @apiError (400) BadRequest
  */
 router.post("/", (req, res, next)=>{
-    
+    const dbData = {};
+    db.query("user").insert(dbData, "*");
+
+    rp.
 });
 
 /**
@@ -44,7 +48,8 @@ router.post("/", (req, res, next)=>{
  * @apiError (404) User Not Found
  */
 router.get("/:user", (req, res, next)=>{
-    
+
+    db.query("user")
 });
 
 /**
