@@ -5,10 +5,11 @@ services:
 
 before_script:
   - docker build -t colisee-api .
-  - docker run --name db --publish 5433:5432 --detach siggame/colisee-db
+  - docker run --name db --publish 5433:5432 --detach siggame/colisee-db:stable
 
 script:
   - docker run --env POSTGRES_PORT=5433 --network host colisee-api npm run test
 
 after_script:
   - docker stop db
+  - docker rm db
