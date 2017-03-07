@@ -14,6 +14,10 @@
     "quick-docs:api": "apidoc -i src/ -o docs/api/",
     "predocs": "npm run build",
     "docs": "npm run quick-docs",
+    "clean:modules": "rm -rf node_modules/",
+    "clean:src": "find src -name *.js -name *.js.map -exec rm {} +",
+    "clean:test": "find test -name *.js -name *.js.map -exec rm {} +",
+    "clean": "npm run clean:src && npm run clean:test && npm run clean:modules",
     "quick-test": "mocha test/",
     "pretest": "npm run build",
     "test": "npm run quick-test"
