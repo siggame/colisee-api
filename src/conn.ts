@@ -1,5 +1,6 @@
 import * as knexModule from "knex";
 import * as _ from "lodash";
+import { RequestResponse } from "request";
 import * as rp from "request-promise";
 
 import * as vars from "./vars";
@@ -15,15 +16,16 @@ export const db = knexModule({
     },
 });
 
-export function gitlab(method: string, path: string, qs: Object={}, headers: Object={}, body?: Object): Promise<any> {
-    return new Promise<any>((resolve, reject)=>{
-        const options: rp.Options= {
-            method: method,
-            uri: path,
-            qs: qs,
-            headers: headers,
-            json: true
-        }
+/**
+ * Make a request to a Colisee GitLab endpoint
+ * @param options 
+ * @param [body]
+ */
+export function gitlab(options: rp.Options, body?: Object): Promise<RequestResponse> {
+    return new Promise<RequestResponse>((resolve, reject)=>{
+        options.baseUrl = `http://${vars.GITLAB_HOST}:${vars.GITLAB_PORT}/api/v4/`;
+        options.json = true;
+        options.resolveWithFullResponse = true;
 
         options.headers["PRIVATE-TOKEN"] = vars.GITLAB_TOKEN;
         if(!_.isNil(body)) options.body = body;

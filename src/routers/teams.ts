@@ -32,12 +32,12 @@ router.post("/", (req, res, next)=>{
  * @apiName GetTeamInfo
  * @apiGroup Teams
  *
- * @apiParam {Number} team Teams unique id
+ * @apiParam {Number} id Team's unique id
  *
  * @apiSuccess (200) {Object[]} team Team Info
  * @apiError (404) Team Not Found
  */
-router.get("/:team", (req, res, next)=>{
+router.get("/:id", (req, res, next)=>{
     
 });
 
@@ -46,12 +46,12 @@ router.get("/:team", (req, res, next)=>{
  * @apiName UpdateTeam
  * @apiGroup Teams
  *
- * @apiParam {Number} team Teams unique id
+ * @apiParam {Number} id Teams unique id
  * 
  * @apiSuccess (200) Information Updated
  * @apiError (404) Team Not Found
  */
-router.put("/:team", (req, res, next)=>{
+router.put("/:id", (req, res, next)=>{
     
 });
 
@@ -60,26 +60,26 @@ router.put("/:team", (req, res, next)=>{
  * @apiName DeleteTeam
  * @apiGroup Teams
  *
- * @apiParam {Number} team Teams unique id
+ * @apiParam {Number} id Team's unique id
  * 
  * @apiSuccess (200) Deleted User
  * @apiError (404) Team Not Found
  */
-router.delete("/:team", (req, res, next)=>{
+router.delete("/:id", (req, res, next)=>{
     
 });
 
 /**
- * @api {get} /api/teams/:team/users Get Team Users
- * @apiName GetTeamUsers
+ * @api {get} /api/teams/:team/members Get Team Members
+ * @apiName GetTeamMembers
  * @apiGroup Teams
  *
- * @apiParam {Number} team Teams unique id
+ * @apiParam {Number} id Team's unique id
  *
  * @apiSuccess (200) {Objects[]} users Team Users Info
  * @apiError (404) Team Not Found
  */
-router.get("/:team/users", (req, res, next)=>{
+router.get("/:id/members", (req, res, next)=>{
 
 });
 

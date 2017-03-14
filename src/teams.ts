@@ -1,11 +1,11 @@
 import { User } from "./users";
+import * as conn from "./conn";
 
 export interface Team {
     id: number;
     name: string;
-    path: string;
+    stub: string;
     description: string;
-    namespace: string;
     captian_id: number;
 }
 
@@ -33,7 +33,20 @@ export function getTeams(options: GetTeamsOptions): Promise<Team[]> {
  */
 export function getTeam(id: number): Promise<Team> {
     return new Promise<Team>((resolve, reject)=>{
-        reject(new Error("NOT IMPLEMENTED"));
+        const gl = 0;
+        const db = 1;
+
+        const promises = [
+            conn.db("team").where("id", id).then(),
+            conn.gitlab({url: `projects/${id}`})
+        ];
+        Promise.all(promises)
+            .then(results=>{
+                if()
+            })
+            .then(resolve)
+            .catch(reject);
+
     });
 }
 
@@ -76,4 +89,15 @@ export function getTeamMembers(id: number): Promise<User[]> {
     return new Promise<User[]>((resolve, reject)=>{
         reject(new Error("NOT IMPLEMENTED"));
     });
+}
+
+export function joinTeamData(gitlabData: any, dbData: any): Team {
+    if(gitlabData.id !== dbData.id) {
+        throw new Error(`Cannot join team datas with different ids: ${gitlabData.id} and ${dbData.id}`);
+    }
+    return {
+        id: gitlabData.id,
+        name: gitlabData.name,
+
+    }
 }
