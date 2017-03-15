@@ -42,9 +42,9 @@ export function getTeam(id: number): Promise<Team> {
         ];
         Promise.all(promises)
             .then(results=>{
-                if()
-            })
-            .then(resolve)
+         //       if(id)
+            })   //return statement here, but inside this if statement? Does this if even go here? All this and more in the next season of ask Russley
+         //   .then(resolve)
             .catch(reject);
 
     });

@@ -1,5 +1,7 @@
 import * as express from "express";
 
+import * as teams from "../teams";
+
 const router: express.Router = express.Router();
 
 // Get Teams
@@ -38,6 +40,13 @@ router.post("/", (req, res, next)=>{
  * @apiError (404) Team Not Found
  */
 router.get("/:id", (req, res, next)=>{
+    const id: number = req.params.id;
+    teams.getTeam(id)
+    .then((team: teams.Team)=>{
+        res.send(team);
+    })
+    .catch(next);
+
     
 });
 
