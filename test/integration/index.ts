@@ -1,4 +1,4 @@
-import { db } from "../../src/connection";
+import { db } from "../../src/conn";
 
 export default function () {
   describe("Integration Tests", function () {
