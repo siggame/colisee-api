@@ -2,9 +2,9 @@
   "name": "colisee-api",
   "version": "1.0.0",
   "description": "Micro-service responsible for scheduling random games for SIG-Game Colisee.",
-  "main": "src/main.js",
+  "main": "src/index.js",
   "scripts": {
-    "quick-start": "node src/main.js",
+    "quick-start": "node src/index.js",
     "prestart": "npm run build",
     "start": "npm run quick-start",
     "setup": "npm install",
