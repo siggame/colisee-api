@@ -1,26 +1,51 @@
 {
   "name": "colisee-api",
-  "version": "1.0.0",
-  "description": "Micro-service responsible for scheduling random games for SIG-Game Colisee.",
-  "main": "src/main.js",
+  "version": "0.1.0",
+  "description": "API for internal colisee resources.",
+  "main": "release",
+  "dependencies": {
+    "@siggame/colisee-lib": "^0.3.1",
+    "cors": "^2.8.4",
+    "dotenv": "^4.0.0",
+    "express": "^4.16.2",
+    "http-errors": "^1.6.2",
+    "lodash": "^4.17.5",
+    "request": "^2.83.0",
+    "request-promise-native": "^1.0.5",
+    "tstl": "^1.6.11",
+    "winston": "^2.4.0"
+  },
+  "devDependencies": {
+    "@siggame/colisee-tslint": "^1.0.3",
+    "@types/chai": "^4.1.2",
+    "@types/cors": "^2.8.3",
+    "@types/dotenv": "^4.0.2",
+    "@types/express": "^4.11.1",
+    "@types/http-errors": "^1.6.1",
+    "@types/lodash": "^4.14.103",
+    "@types/node": "^8.9.4",
+    "@types/request": "^2.47.0",
+    "@types/request-promise-native": "^1.0.13",
+    "@types/winston": "^2.3.8",
+    "chai": "^4.1.2",
+    "mocha": "^3.5.3",
+    "rimraf": "^2.6.2",
+    "typescript": "^2.7.2"
+  },
   "scripts": {
-    "quick-start": "node src/main.js",
-    "prestart": "npm run build",
-    "start": "npm run quick-start",
-    "setup": "npm install",
     "build": "tsc",
-    "quick-docs": "npm run quick-docs:ts",
-    "quick-docs:ts": "typedoc --tsconfig tsdoc.json --out docs/ts/",
-    "quick-docs:api": "apidoc -i src/ -o docs/api/",
-    "predocs": "npm run build",
-    "docs": "npm run quick-docs",
-    "clean:modules": "rm -rf node_modules/",
-    "clean:src": "find src \\( -name *.js -o -name *.js.map \\) -exec rm {} +",
-    "clean:test": "find test \\( -name *.js -o -name *.js.map \\) -exec rm {} +",
-    "clean": "npm run clean:src && npm run clean:test && npm run clean:modules",
-    "quick-test": "mocha test/",
+    "build:dist": "tsc -p tsconfig.dist.json",
+    "build:watch": "tsc --watch",
+    "lint": "tslint --format verbose --project ./tsconfig.json",
+    "setup": "npm install",
+    "start:dev": "npm run build && node --trace-warnings --inspect src",
+    "start:prod": "NODE_ENV=production npm run build:dist && node release",
     "pretest": "npm run build",
-    "test": "npm run quick-test"
+    "test": "mocha --colors test",
+    "clean": "npm run clean:src && npm run clean:test && npm run clean:misc",
+    "clean:misc": "rimraf release/ node_modules/",
+    "clean:src": "rimraf src/*.js src/**/*.js",
+    "clean:test": "rimraf test/*.js test/**/*.js"
   },
   "repository": {
     "type": "git",
@@ -31,31 +56,5 @@
   "bugs": {
     "url": "https://github.com/siggame/colisee-api/issues"
   },
-  "homepage": "https://github.com/siggame/colisee-api#readme",
-  "devDependencies": {
-    "@types/body-parser": "0.0.33",
-    "@types/chai": "^3.4.34",
-    "@types/dotenv": "^2.0.20",
-    "@types/express": "^4.0.35",
-    "@types/knex": "0.0.40",
-    "@types/mocha": "^2.2.39",
-    "@types/node": "^7.0.5",
-    "@types/request-promise": "^4.1.33",
-    "apidoc": "^0.17.5",
-    "chai": "^3.5.0",
-    "mocha": "^3.2.0",
-    "tsdoc": "0.0.4",
-    "typedoc": "^0.5.5",
-    "typescript": "^2.1.5"
-  },
-  "dependencies": {
-    "body-parser": "^1.16.0",
-    "dotenv": "^4.0.0",
-    "express": "^4.14.1",
-    "knex": "^0.12.6",
-    "lodash": "^4.17.4",
-    "pg": "^6.1.2",
-    "request": "^2.79.0",
-    "request-promise": "^4.1.1"
-  }
+  "homepage": "https://github.com/siggame/colisee-api#readme"
 }

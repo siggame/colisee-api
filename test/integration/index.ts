@@ -1,15 +1,9 @@
-import { db } from "../../src/conn";
+import app from "./app";
 
-export default function () {
-  describe("Integration Tests", function () {
+export default () => {
 
-    it('should connect to the database', function () {
-      this.retries(5);
-      return new Promise((resolve, reject) => {
-        db.raw('SELECT 1+1')
-          .then(resolve)
-      });
+    describe("Integration Tests |", () => {
+        app();
     });
 
-  });
 };

@@ -1,12 +1,17 @@
-
 # Editors & Environment
-.vagrant/
-.vscode/
 .idea/
+.vscode/
+.vagrant/
 .env
+
+# Compiled & Generated
+*.js
+
+# NPM
+node_modules/
+
 *.log
 
-# NodeJS & NPM
-node_modules
-npm-debug.log
-*.js.map
+docs/
+release/
+tmp/
