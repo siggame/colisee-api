@@ -1,15 +1,20 @@
-sudo: required
-
-services:
-  - docker
+language: node_js
+node_js:
+    - node
 
 before_script:
-  - docker build -t colisee-api .
-  - docker run --name db --publish 5433:5432 --detach siggame/colisee-db:stable
-
+    - npm install
 script:
-  - docker run --env POSTGRES_PORT=5433 --network host colisee-api npm run test
+    - npm test
 
-after_script:
-  - docker stop db
-  - docker rm db
+before_deploy:
+    - npm install -g typedoc
+    - typedoc --tsconfig tsconfig.dist.json --mode modules --out docs src && touch docs/.nojekyll
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  local_dir: docs/
+  github_token: $GH_TOKEN
+  on:
+    branch: master
