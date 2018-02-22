@@ -39,7 +39,12 @@ app.use(cors());
 app.use(logger);
 app.use(errorHandler);
 
-app.use("/storage", express.static(STORAGE_DIR));
+app.use("/storage", express.static(STORAGE_DIR, {
+    setHeaders: (res, path, stat) => {
+        res.set("Content-Length", stat.size);
+        res.set("Content-Encoding", "gzip");
+    },
+}));
 // app.get("/vis", () => { });
 app.get("/vis/random", catchError<RequestHandler>(((): RequestHandler => {
     const random_games = new Deque<{ log_url: string }>();
