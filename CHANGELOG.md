@@ -1,17 +1,17 @@
 # Change Log
 
 [//]: # (<values>)
-[<compare>]: # (https://github.com/siggame/colisee-builder/compare/{previous}...{current})
+[<compare>]: # (https://github.com/siggame/colisee-api/compare/${previous}...${current})
 [<pre_release_header>]: # (## [Unreleased])
 [<pre_release_description>]: # ( )
-[<pre_release_ref>]: # ([Unreleased]: {compare})
-[<release_header>]: # (## [{version}] - {year}-{month}-{day})
-[<release_description>]: # (*)
-[<release_ref>]: # ([{version}]: {compare})
+[<pre_release_ref>]: # ([Unreleased]: ${compare})
+[<release_header>]: # (## [${version}] - ${year}-${month}-${day})
+[<release_description>]: # (### Added${sep}-${sep}### Changed${sep}-${sep}### Removed${sep}-${sep}### Fixed${sep}-)
+[<release_ref>]: # ([${version}]: ${compare})
 [<current>]: # (v1.0.0)
 [//]: # (<end>)
 
-All notable changes to colisee-builder will be documented in this file.
+All notable changes to [siggame/colisee-api] will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
@@ -21,13 +21,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
  
 
-[Unreleased]: https://github.com/siggame/colisee-builder/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/siggame/colisee-api/compare/v1.0.0...HEAD
 [//]: # (<end>)
 
 [//]: # (<release>)
-## [v1.0.0] - 2018-2-25
+## [v1.0.0] - 2018-3-3
 
 * Update documentation for deploying arena in CS5400 for Chess
 
-[v1.0.0]: https://github.com/siggame/colisee-builder/compare/v0.0.0...v1.0.0
+[v1.0.0]: https://github.com/siggame/colisee-api/compare/v0.0.0...v1.0.0
 [//]: # (<end>)
+
+[siggame/colisee-api]: (https://github.com/siggame/colisee-api)
