@@ -4,7 +4,7 @@ Micro-service responsible for trusted external service communiction.
 
 [![Travis](https://img.shields.io/travis/siggame/colisee-api.svg?style=flat-square)](https://travis-ci.org/siggame/colisee-api)
 [![Docker Pulls](https://img.shields.io/docker/pulls/siggame/colisee-api.svg?style=flat-square)](https://hub.docker.com/r/siggame/colisee-api/)
-[![GitHub release](https://img.shields.io/github/release/siggame/colisee-api.svg?style=flat-square)](https://github.com/siggame/colisee-api/releases)
+[![GitHub Tag](https://img.shields.io/github/tag/siggame/colisee-api.svg?style=flat-square)](https://github.com/siggame/colisee-api/tags)
 [![dependencies Status](https://david-dm.org/siggame/colisee-api/status.svg)](https://david-dm.org/siggame/colisee-api)
 [![devDependencies Status](https://david-dm.org/siggame/colisee-api/dev-status.svg)](https://david-dm.org/siggame/colisee-api?type=dev)
 
